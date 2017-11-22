@@ -11,8 +11,8 @@ defmodule PasswordApp.Application do
     children = [
       # Starts a worker by calling: PasswordApp.Worker.start_link(arg)
       # {PasswordApp.Worker, arg},
-      worker(PasswordApp.PasswordStore, []),
-      worker(PasswordApp.PasswordService, [])
+      worker(PasswordApp.Store.Server,   []),
+      worker(PasswordApp.Service.Server, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

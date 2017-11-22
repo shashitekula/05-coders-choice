@@ -1,4 +1,4 @@
-defmodule PasswordApp.State do
+defmodule PasswordApp.Store.State do
 
   defstruct(
     username: "",

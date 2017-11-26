@@ -1,4 +1,4 @@
-defmodule PasswordApp.Service.Impl do
+defmodule PasswordStore.Service.Impl do
 
   def create(tuple, state) do
     tuple
@@ -31,7 +31,7 @@ defmodule PasswordApp.Service.Impl do
 
   def update_state({username, password}, store) do
       [
-        %PasswordApp.Store.State {
+        %PasswordStore.Store.State {
           username: username,
           password: password
         }

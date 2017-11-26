@@ -1,4 +1,4 @@
-defmodule PasswordApp.Mixfile do
+defmodule PasswordStore.Mixfile do
   use Mix.Project
 
   def project do
@@ -15,7 +15,7 @@ defmodule PasswordApp.Mixfile do
   def application do
     [
       extra_applications: [:logger],
-      mod: {PasswordApp.Application, []}
+      mod: {PasswordStore.Application, []}
     ]
   end
 

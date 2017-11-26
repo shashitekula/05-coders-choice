@@ -1,8 +1,8 @@
-defmodule PasswordApp do
+defmodule PasswordStore do
 
-  defdelegate create(user), to: PasswordApp.Service.Server
-  defdelegate login(user),  to: PasswordApp.Service.Server
-  defdelegate reset(user),  to: PasswordApp.Service.Server
+  defdelegate create(user), to: PasswordStore.Service.Server
+  defdelegate login(user),  to: PasswordStore.Service.Server
+  defdelegate reset(user),  to: PasswordStore.Service.Server
 
 
 end

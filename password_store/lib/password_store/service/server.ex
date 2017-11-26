@@ -1,4 +1,4 @@
-defmodule PasswordApp.Service.Server do
+defmodule PasswordStore.Service.Server do
 
   use GenServer
 
@@ -19,17 +19,17 @@ defmodule PasswordApp.Service.Server do
   end
 
   def handle_call({:create, username, password}, _from, state) do
-    {:reply, state,  PasswordApp.Service.Impl.create({username, password}, state)}
+    {:reply, state,  PasswordStore.Service.Impl.create({username, password}, state)}
   end
 
 
   def handle_call({:login, username, password}, _from, state) do
-    {:reply, PasswordApp.Service.Impl.login({username, password}, state), state}
+    {:reply, PasswordStore.Service.Impl.login({username, password}, state), state}
   end
 
 
   def handle_call({:reset, username, newpassword}, _from, state) do
-    {:reply, state, PasswordApp.Service.Impl.reset({username, newpassword}, state)}
+    {:reply, state, PasswordStore.Service.Impl.reset({username, newpassword}, state)}
   end
 
 end

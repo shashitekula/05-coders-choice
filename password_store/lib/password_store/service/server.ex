@@ -14,26 +14,22 @@ defmodule PasswordApp.Service.Server do
     GenServer.call(__MODULE__, {:login, username, password})
   end
 
-  def reset({username, password, newpassword}) do
-    GenServer.call(__MODULE__, {:reset, username, password, newpassword})
+  def reset({username, newpassword}) do
+    GenServer.call(__MODULE__, {:reset, username, newpassword})
   end
 
-
-
   def handle_call({:create, username, password}, _from, state) do
-    {:reply, PasswordApp.Service.Impl.create({username, password}), state}
+    {:reply, state,  PasswordApp.Service.Impl.create({username, password}, state)}
   end
 
 
   def handle_call({:login, username, password}, _from, state) do
-    {:reply, PasswordApp.Service.Impl.login({username, password}), state}
+    {:reply, PasswordApp.Service.Impl.login({username, password}, state), state}
   end
 
 
-  def handle_call({:reset, username, password, newpassword}, _from, state) do
-    {:reply, PasswordApp.Service.Impl.reset({username, password, newpassword}), state}
+  def handle_call({:reset, username, newpassword}, _from, state) do
+    {:reply, state, PasswordApp.Service.Impl.reset({username, newpassword}, state)}
   end
-
-
 
 end

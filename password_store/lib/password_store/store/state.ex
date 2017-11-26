@@ -5,5 +5,4 @@ defmodule PasswordApp.Store.State do
     password: ""
   )
 
-
 end

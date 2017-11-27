@@ -38,10 +38,6 @@ defmodule PasswordService.Impl do
   end
 
   def validate_password({_, username}, password) do
-    IO.inspect "in the validate password"
-    IO.inspect username
-    IO.inspect password
-
     { "Username error.", username, password }
   end
 
@@ -51,14 +47,12 @@ defmodule PasswordService.Impl do
   end
 
   def initiate({false, _, _}) do
-    raise "Invalid password entered"
+    "Invalid password entered"
   end
 
-  def initiaite({msg, _, _}), do: raise msg
+  def initiate({msg, _, _}), do: msg
 
   def validate_username(username) do
-    IO.inspect "in the validate username"
-    IO.inspect username
     {Regex.match?(~r/^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){6,10}$/,username), username }
   end
 

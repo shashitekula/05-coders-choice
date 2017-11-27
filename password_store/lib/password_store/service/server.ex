@@ -32,4 +32,8 @@ defmodule PasswordStore.Service.Server do
     {:reply, state, PasswordStore.Service.Impl.reset({username, newpassword}, state)}
   end
 
+  def handle_call(:test, _from, state) do
+    {:reply, state, state}
+  end
+
 end
